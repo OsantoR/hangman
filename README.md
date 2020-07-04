@@ -1,2 +1,2 @@
-# hangman
+# Bangman
 first game project
