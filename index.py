@@ -1,4 +1,103 @@
 import random
+import pygame
+
+pygame.init()
+
+screen = pygame.display.set_mode((500, 500))
+pygame.display.set_caption("Hangman")
+pygame.display.update()
+
+#pygame.mixer.init()
+
+pygame.mixer.music.load("theme.wav")
+pygame.mixer.music.set_volume(0.01)
+pygame.mixer.music.play(-1)
+
+
+file = open("german.dic", "r")
+contents = file.read()
+word_list = contents.split("\n")
+
+secret_word = random.choice(word_list)
+used_tries = 0
+try_limit = 10
+underscore = ""
+
+for i in range(len(secret_word)):
+    underscore += "_"
+
+
+myfont = pygame.font.SysFont('Comic Sans MS', 30)
+
+textsurface = myfont.render(underscore, False, (255, 255, 255))
+
+screen.blit(textsurface,(0,0))
+pygame.display.update()
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+while True:
+    pygame.display.update()
+    print("Press 'p' to pause, 'r' to resume")
+    print("Press 'e' to exit the program")
+    query = input("  ")
+
+    if query == 'p':
+
+        # Pausing the music
+        pygame.mixer.music.pause()
+    elif query == 'r':
+
+        # Resuming the music
+        pygame.mixer.music.unpause()
+    elif query == 'e':
+
+        # Stop the mixer
+        pygame.mixer.music.stop()
+        break
 
 def get_input():
     while True:
@@ -62,3 +161,4 @@ while True:
         print("Thanks for playing!")
 
         break
+"""
